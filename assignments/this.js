@@ -12,15 +12,46 @@
 // Principle 1
 
 // code example for Window Binding
+function sayGhost(name) {
+    console.log(this);
+    return name;
+  }
+  sayGhost("Nearly Headless Nick");
 
 // Principle 2
 
 // code example for Implicit Binding
-
+let myGhost = {
+    name: 'Nearly Headless Nick',
+    boo: 'Boo!!',
+    ghost: function () {
+      console.log(this.boo);
+    }
+  }
+  
+  myGhost.ghost();
 // Principle 3
 
 // code example for New Binding
+function Ghost(name) {
+    this.name = name;
+  }
+  
+  let myGhost = new Ghost('Nearly headless? How can you be nearly headless?');
+  
+  console.log(myGhost.name); 
 
 // Principle 4
 
-// code example for Explicit Binding
+ 
+
+function ghost() {
+    console.log(this.boo);
+  }
+  
+  let myGhost = {
+    name: 'Nearly Headless Nick',
+    boo: '👻 Boo!!',
+  }
+  
+  ghost.call(myGhost);
